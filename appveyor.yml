@@ -7,9 +7,6 @@ environment:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       TOOLSET: msvc-14.1
       ARCH: x86_64
-    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      TOOLSET: msvc-14.1
-      ARCH: x86
 
 install:
   - if %ARCH% == x86 ( set TRIPLET=x86-windows ) else ( set TRIPLET=x64-windows )
