@@ -15,7 +15,6 @@ build: off
 test_script:
   - set PATH=%ADDPATH%%PATH%
   - |-
-    cmd --version
-    echo Show me a greater than: ^> > config.jam
+    set CHUNK="^<include^>\include ^<search^>\lib"
+    echo using zlib : : %CHUNK% ; > config.jam
     more config.jam
-    
