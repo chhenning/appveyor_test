@@ -22,7 +22,6 @@ build: off
 test_script:
   - set PATH=%ADDPATH%%PATH%
   - |-
-    set VCPKG=%APPVEYOR_BUILD_FOLDER%\..\vcpkg\installed\%TRIPLET%
-    echo using zlib : : ^<include^>%VCPKG%\include ^<search^>%VCPKG%\lib ; > config.jam
+    echo using zlib : : ^<include^>\include ^<search^>\lib ; > config.jam
     more config.jam
     
