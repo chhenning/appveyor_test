@@ -25,4 +25,4 @@ test_script:
     set VCPKG=%APPVEYOR_BUILD_FOLDER%\..\vcpkg\installed\%TRIPLET%
     echo using zlib : : ^<include^>%VCPKG%\include ^<search^>%VCPKG%\lib ; > config.jam
     more config.jam
-	
+    
