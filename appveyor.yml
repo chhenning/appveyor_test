@@ -1,0 +1,28 @@
+version: 1.0.{build}-{branch}
+
+shallow_clone: true
+
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      TOOLSET: msvc-14.1
+      ARCH: x86_64
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      TOOLSET: msvc-14.1
+      ARCH: x86
+
+install:
+  - if %ARCH% == x86 ( set TRIPLET=x86-windows ) else ( set TRIPLET=x64-windows )
+  - if %ARCH% == x86 ( set AM=32 ) else ( set AM=64 )
+  - git clone -b master --depth 1 https://github.com/boostorg/boost.git boost-root
+  - cd boost-root
+
+build: off
+
+test_script:
+  - set PATH=%ADDPATH%%PATH%
+  - |-
+    set VCPKG=%APPVEYOR_BUILD_FOLDER%\..\vcpkg\installed\%TRIPLET%
+    echo using zlib : : ^<include^>%VCPKG%\include ^<search^>%VCPKG%\lib ; > config.jam
+    more config.jam
+	
