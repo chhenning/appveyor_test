@@ -15,6 +15,6 @@ build: off
 test_script:
   - set PATH=%ADDPATH%%PATH%
   - |-
-    echo using zlib : : include\include search\lib ; > config.jam
+    echo Show me a greater than: ^> > config.jam
     more config.jam
     
