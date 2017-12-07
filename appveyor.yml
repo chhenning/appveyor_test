@@ -13,6 +13,5 @@ install:
 build: off
 
 test_script:
-  - set PATH=%ADDPATH%%PATH%
-  - |-
-    echo ^<Where are my symbols^>
+  - echo ^<Where are my symbols^> > hello.txt
+  - more hello.txt
